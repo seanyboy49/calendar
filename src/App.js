@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import Month from './components/Month';
+import Calendar from './components/Calendar';
 
 class App extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class App extends Component {
 
     this.state = {
       currentMonth: null,
+      currentMonthName: null,
       days: null
     }
 
@@ -16,18 +17,30 @@ class App extends Component {
 
   }
 
+  componentWillMount() {
+    this.getMonth();
+  }
+
   getMonth() {
-    const monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    const month = monthArray[new Date().getMonth()];
-    console.log(month);
+    const monthArray = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+    const month = new Date().getMonth();
+    const monthName = monthArray[new Date().getMonth()];
     this.setState({ currentMonth: month})
+    this.setState({ currentMonthName: monthName})
+
+    this.getDays(month, 2017)
+  }
+
+  getDays(month, year) {
+    const days = new Date(year, month, 0).getDate();
+    this.setState({ days: days})
   }
 
   render() {
     return (
         <div>
-          <button onClick={this.getMonth}>Click</button>
-          <Month month={this.state.currentMonth}/>
+          <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
+          <Calendar days={this.state.days}/>
         </div>
     );
   }

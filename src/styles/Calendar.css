@@ -1,0 +1,56 @@
+@font-face {
+  font-family: ProximaNova-Light;
+  src:url("/public/ProximaNova-Light.otf");
+}
+
+@font-face {
+  font-family: ProximaNova-Semibold;
+  src:url("/public/ProximaNova-Semibold.otf");
+}
+
+.calendar-container {
+  display: inline-block;
+  width: 990px;
+  height: 1080px;
+  position: absolute;
+}
+
+.days {
+  display: inline-block;
+  font-size: 30px;
+  list-style: none;
+}
+
+.days li {
+  font-family: "ProximaNova-Light";
+  font-size:17px;
+  display: inline;
+  margin: 25px;
+}
+
+.dayCard {
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.dayCard-number {
+  margin: 5px;
+  font-size: 22px;
+  font-family: "ProximaNova-Semibold";
+  position: absolute;
+}
+
+.dayCard-number::after {
+  content: "";
+  height: 2px;
+  width: 25px;
+  background-color: black;
+  position: absolute;
+  top: 20px;
+  left: 1px;
+}

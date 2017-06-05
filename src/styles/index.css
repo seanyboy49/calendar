@@ -1,0 +1,45 @@
+/* #EE2A7B */
+
+@font-face {
+  font-family: ProximaNova-Bold;
+  src:url("/public/ProximaNova-Bold.otf");
+}
+
+@font-face {
+  font-family: ProximaNova-SemiBold;
+  src:url("/public/ProximaNova-SemiBold.otf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.month-wrapper {
+  display: inline-block;
+  background-color: blue;
+  width: 250px;
+  padding-left: 50px;
+}
+
+.pink-bar {
+  display: inline-block;
+  height: 10px;
+  width: 120px;
+  background-color: #EE2A7B;
+  margin: 42px;
+}
+
+.month {
+  font-size: 150px;
+  font-family: "ProximaNova-Semibold";
+  margin: 5px;
+  line-height: 0.65;
+}
+
+.month-name {
+  font-size: 60px;
+  font-family: "ProximaNova-Semibold";
+  margin: 5px;
+}
