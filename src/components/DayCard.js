@@ -22,6 +22,7 @@ class DayCard extends React.Component {
     return (
       <div className="dayCard">
         <div className="dayCard-number">{this.formatNumber()}</div>
+        <input></input>
       </div>
     )
   }

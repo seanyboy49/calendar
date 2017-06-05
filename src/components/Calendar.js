@@ -18,22 +18,20 @@ class Calendar extends React.Component {
     return dayArray
   }
 
-  // componentWillMount() {
-  //   this.renderDays();
-  // }
-
   render() {
     return (
       <section className="calendar-container">
-        <ul className="days">
-          <li>MONDAY</li>
-          <li>TUESDAY</li>
-          <li>WEDNESDAY</li>
-          <li>THURSDAY</li>
-          <li>FRIDAY</li>
-          <li>SATURDAY</li>
-          <li>SUNDAY</li>
-        </ul>
+        <table className="days">
+          <thead>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+            <th>SUNDAY</th>
+          </thead>
+        </table>
         <section className="numbered-days">
           {this.renderDays()}
         </section>
