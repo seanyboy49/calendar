@@ -12,9 +12,13 @@ class Calendar extends React.Component {
 
   renderDays() {
     const dayArray = [];
-    for (var i=1; i < this.props.days; i++) {
-      dayArray.push(<DayCard number={i} key={i}/>)
+    for (var i=1; i< this.props.firstDay; i++) {
+      dayArray.push(<DayCard key={i} visible={false}/>)
     }
+    for (var i=1; i < this.props.days; i++) {
+      dayArray.push(<DayCard number={i} key={i+this.props.firstDay} visible={true}/>)
+    }
+    console.log(dayArray)
     return dayArray
   }
 

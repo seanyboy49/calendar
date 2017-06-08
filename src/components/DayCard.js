@@ -7,8 +7,7 @@ class DayCard extends React.Component {
 
     this.state = {
       content: "",
-      office: null,
-      visible: null
+      office: null
     }
 
     this.formatNumber=this.formatNumber.bind(this)
@@ -27,7 +26,7 @@ class DayCard extends React.Component {
 
   render() {
     return (
-      <div style={ (this.state.visible) ? {visibility: "visible"} : {visibility: "hidden"} } className="dayCard">
+      <div style={ (this.props.visible) ? {visibility: "visible"} : {visibility: "hidden"} } className="dayCard">
         <div className="dayCard-number">{this.formatNumber()}</div>
         <RIETextArea
           className="text-area"

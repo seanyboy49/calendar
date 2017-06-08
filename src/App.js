@@ -32,7 +32,8 @@ class App extends Component {
     this.getDays(month, 2017)
 
     const date = new Date();
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+
     this.setState( { firstDay: firstDay })
   }
 
@@ -46,7 +47,7 @@ class App extends Component {
     return (
         <div>
           <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
-          <Calendar days={this.state.days}/>
+          <Calendar firstDay={this.state.firstDay} days={this.state.days}/>
         </div>
     );
   }
