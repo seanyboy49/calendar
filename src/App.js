@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       currentMonth: null,
       currentMonthName: null,
-      days: null
+      days: null,
+      firstDay: null
     }
 
     this.getMonth=this.getMonth.bind(this);
@@ -29,12 +30,17 @@ class App extends Component {
     this.setState({ currentMonthName: monthName})
 
     this.getDays(month, 2017)
+
+    const date = new Date();
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    this.setState( { firstDay: firstDay })
   }
 
   getDays(month, year) {
     const days = new Date(year, month, 0).getDate();
     this.setState({ days: days})
   }
+
 
   render() {
     return (

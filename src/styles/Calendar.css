@@ -47,6 +47,10 @@
   border: 1px solid gray;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .dayCard-number {
   margin: 5px;
   font-size: 22px;
@@ -62,4 +66,19 @@
   position: absolute;
   top: 20px;
   left: 1px;
+}
+
+/*text-input*/
+.text-area {
+  background-color: gray;
+  height: 40px;
+  width: 90px;
+  /*position: absolute;*/
+  display: block;
+  top: 35px;
+}
+
+.text-area span {
+  position: absolute;
+  display: inline-block;
 }
