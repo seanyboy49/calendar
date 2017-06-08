@@ -1,6 +1,6 @@
 /* #EE2A7B */
 
-@font-face {
+/*@font-face {
   font-family: ProximaNova-Bold;
   src:url("/public/ProximaNova-Bold.otf");
 }
@@ -8,7 +8,7 @@
 @font-face {
   font-family: ProximaNova-SemiBold;
   src:url("/public/ProximaNova-SemiBold.otf");
-}
+}*/
 
 body {
   margin: 0;
@@ -29,7 +29,7 @@ body {
   height: 10px;
   width: 120px;
   background-color: #EE2A7B;
-  margin: 42px;
+  margin: 42px 0 42px 10px;
 }
 
 .month {
