@@ -7,12 +7,29 @@ class DayCard extends React.Component {
 
     this.state = {
       content: "",
-      office: null
+      office: "NY",
+      editing: false
     }
 
-    this.formatNumber=this.formatNumber.bind(this)
-    this.handleInput=this.handleInput.bind(this)
-    this.renderOffice=this.renderOffice.bind(this)
+    this.formatNumber=this.formatNumber.bind(this);
+    this.handleInput=this.handleInput.bind(this);
+    this.renderOffice=this.renderOffice.bind(this);
+    this.handleClick=this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    let editState = this.state.editing;
+    this.setState( {editing: !editState} )
+  }
+
+  toggleEditing() {
+    var classNames = ["dayCard"]
+    if (this.state.editing) {
+      classNames.push("editing")
+    } else if (classNames.length === 2 && !this.state.editing) {
+      classNames.pop()
+    }
+    return classNames.join(' ');
   }
 
   formatNumber() {
@@ -26,35 +43,41 @@ class DayCard extends React.Component {
   }
 
   renderOffice() {
-    let office = this.state.office;
-    switch(office) {
-      case "SF":
-      return {backgroundColor: "#EE2A7B", color: "white"};
-      break;
+    let visible = this.props.visible;
 
-      case "LA":
-      return {backgroundColor: "#C12867"};
-      break;
+    if (!visible) {
+      return {visibility: "hidden"}
+      } else {
 
-      case "NY":
-      return {backgroundColor: "#7D2448"};
-      break;
+        let office = this.state.office;
+        switch(office) {
+          case "SF":
+          return {backgroundColor: "#EE2A7B", color: "white"};
+          break;
 
-      case "US/GLOBAL":
-      return {backgroundColor: "black"};
-      break;
+          case "LA":
+          return {backgroundColor: "#C12867", color: "white"};
+          break;
 
-      default:
-      return {backgroundColor: "white"};
+          case "NY":
+          return {backgroundColor: "#7D2448", color: "white"};
+          break;
 
+          case "US/GLOBAL":
+          return {backgroundColor: "black", color: "white"};
+          break;
+
+          default:
+          return {backgroundColor: "white"};
+        }
     }
   }
 
   render() {
     return (
-      <div
-        style={ (this.props.visible) ? {visibility: "visible"} : {visibility: "hidden"} } style={this.renderOffice()}
-        className="dayCard">
+      <div onClick={this.handleClick}
+        style={this.renderOffice()}
+        className={this.toggleEditing()} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
         <RIETextArea
           className="text-area"
