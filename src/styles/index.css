@@ -16,6 +16,11 @@ body {
   font-family: sans-serif;
 }
 
+.app {
+  width: 1366px;
+  
+}
+
 
 /* Month */
 .month-wrapper {

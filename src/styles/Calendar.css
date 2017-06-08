@@ -38,26 +38,25 @@
 /* Individual Day Cards*/
 .dayCard {
   display: inline-block;
+  position: relative;
   margin: 4px;
   width: 110px;
   height: 110px;
   background: white;
-  border-radius: 3px;
-  border: 1px solid gray;
+  border: 1px solid black;
 }
 
 .dayCard-number {
   margin: 5px;
   font-size: 22px;
+
   font-family: "ProximaNova-Semibold";
   position: absolute;
 }
 
-.dayCard-number::after {
-  content: "";
+.dayCard-bar {
   height: 2px;
   width: 25px;
-  background-color: black;
   position: absolute;
   top: 20px;
   left: 1px;
@@ -65,15 +64,15 @@
 
 /*text-input*/
 .text-area {
-  background-color: #5CC9F5;
-  height: 40px;
-  width: 90px;
-  /*position: absolute;*/
+  height: 80px;
+  width: 109px;
+  position: absolute;
   display: block;
-  top: 35px;
+  top: 29px;
 }
 
 .text-area span {
   position: absolute;
   display: inline-block;
+  font-family: "ProximaNova-Light";
 }

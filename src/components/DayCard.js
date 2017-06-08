@@ -12,6 +12,7 @@ class DayCard extends React.Component {
 
     this.formatNumber=this.formatNumber.bind(this)
     this.handleInput=this.handleInput.bind(this)
+    this.renderOffice=this.renderOffice.bind(this)
   }
 
   formatNumber() {
@@ -24,10 +25,37 @@ class DayCard extends React.Component {
     this.setState(e)
   }
 
+  renderOffice() {
+    let office = this.state.office;
+    switch(office) {
+      case "SF":
+      return {backgroundColor: "#EE2A7B", color: "white"};
+      break;
+
+      case "LA":
+      return {backgroundColor: "#C12867"};
+      break;
+
+      case "NY":
+      return {backgroundColor: "#7D2448"};
+      break;
+
+      case "US/GLOBAL":
+      return {backgroundColor: "black"};
+      break;
+
+      default:
+      return {backgroundColor: "white"};
+
+    }
+  }
+
   render() {
     return (
-      <div style={ (this.props.visible) ? {visibility: "visible"} : {visibility: "hidden"} } className="dayCard">
-        <div className="dayCard-number">{this.formatNumber()}</div>
+      <div
+        style={ (this.props.visible) ? {visibility: "visible"} : {visibility: "hidden"} } style={this.renderOffice()}
+        className="dayCard">
+        <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
         <RIETextArea
           className="text-area"
           value={this.state.content}

@@ -46,7 +46,7 @@ class App extends Component {
 
   render() {
     return (
-        <div>
+        <div className="app">
           <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
           <Calendar firstDay={this.state.firstDay} days={this.state.days}/>
           <Offices />
