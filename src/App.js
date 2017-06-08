@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Month from './components/Month';
 import Calendar from './components/Calendar';
+import Offices from './components/Offices';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
         <div>
           <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
           <Calendar firstDay={this.state.firstDay} days={this.state.days}/>
+          <Offices />
         </div>
     );
   }

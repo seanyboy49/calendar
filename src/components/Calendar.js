@@ -12,6 +12,7 @@ class Calendar extends React.Component {
 
   renderDays() {
     const dayArray = [];
+    // render invisible divs to offset the first day
     for (var i=1; i< this.props.firstDay; i++) {
       dayArray.push(<DayCard key={i} visible={false}/>)
     }
@@ -25,17 +26,15 @@ class Calendar extends React.Component {
   render() {
     return (
       <section className="calendar-container">
-        <table className="days">
-          <thead>
-            <th>MONDAY</th>
-            <th>TUESDAY</th>
-            <th>WEDNESDAY</th>
-            <th>THURSDAY</th>
-            <th>FRIDAY</th>
-            <th>SATURDAY</th>
-            <th>SUNDAY</th>
-          </thead>
-        </table>
+        <ul className="days">
+          <li>MONDAY</li>
+          <li>TUESDAY</li>
+          <li>WEDNESDAY</li>
+          <li>THURSDAY</li>
+          <li>FRIDAY</li>
+          <li>SATURDAY</li>
+          <li>SUNDAY</li>
+        </ul>
         <section className="numbered-days">
           {this.renderDays()}
         </section>
