@@ -1,5 +1,4 @@
 import React from 'react';
-import EventEmitter from 'wolfy87-eventemitter';
 import {RIETextArea} from 'riek';
 
 class DayCard extends React.Component {
@@ -16,7 +15,13 @@ class DayCard extends React.Component {
     this.handleInput=this.handleInput.bind(this);
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
-    this.officeClick=this.officeClick.bind(this)
+    this.officeClick=this.officeClick.bind(this);
+    this.handleBold=this.handleBold.bind(this);
+  }
+
+  handleBold() {
+    console.log("bold");
+      console.log(document.execCommand('bold'));
   }
 
   componentDidMount() {
@@ -57,7 +62,6 @@ class DayCard extends React.Component {
   }
 
   handleInput(e) {
-    console.log("input", e);
     this.setState(e)
   }
 
@@ -97,7 +101,7 @@ class DayCard extends React.Component {
       <div onClick={this.handleClick}
         style={this.renderOffice()}
         className={this.toggleEditing()} >
-        <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
+        <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}<button onClick={this.handleBold}><b id="bold">B</b></button></div>
         <RIETextArea
           className="text-area"
           value={this.state.content}

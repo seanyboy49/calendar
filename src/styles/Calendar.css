@@ -70,11 +70,12 @@
 
 /*text-input*/
 .text-area {
-  height: 80px;
-  width: 109px;
+  height: 70px;
+  width: 99px;
   position: absolute;
   display: block;
   top: 29px;
+  
 }
 
 .text-area span {
