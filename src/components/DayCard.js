@@ -1,4 +1,5 @@
 import React from 'react';
+import EventEmitter from 'wolfy87-eventemitter';
 import {RIETextArea} from 'riek';
 
 class DayCard extends React.Component {
@@ -17,6 +18,18 @@ class DayCard extends React.Component {
     this.handleClick=this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    if(this.props.ee) {
+      const ee = this.props.ee;
+      ee.addListener('officeClick', this.officeClick)
+    } else {
+      return;
+    }
+  }
+
+  officeClick() {
+    console.log("an office has been clicked");
+  }
 
 
   handleClick(e) {

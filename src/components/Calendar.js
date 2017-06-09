@@ -1,7 +1,12 @@
 import React from 'react';
+import EventEmitter from 'wolfy87-eventemitter';
+
 import DayCard from './DayCard';
 
 import '../styles/Calendar.css'
+
+const ee = new EventEmitter();
+
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -17,8 +22,11 @@ class Calendar extends React.Component {
     console.log(offices);
   }
 
+
+
   handleOfficeClick() {
     console.log("Click muhfucka");
+    ee.emitEvent('officeClick')
   }
 
   renderDays() {
@@ -28,7 +36,7 @@ class Calendar extends React.Component {
       dayArray.push(<DayCard key={i} visible={false}/>)
     }
     for (var j=1; j < this.props.days; j++) {
-      dayArray.push(<DayCard number={j} key={j+this.props.firstDay} visible={true}/>)
+      dayArray.push(<DayCard ee={ee} number={j} key={j+this.props.firstDay} visible={true}/>)
     }
     return dayArray
   }
