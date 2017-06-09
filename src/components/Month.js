@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/index.css';
 
-const Month = props => {
+const Month = (props) => {
     return(
       <div className="month-wrapper">
         <div className="pink-bar"></div>

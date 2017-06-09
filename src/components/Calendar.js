@@ -8,6 +8,17 @@ class Calendar extends React.Component {
     super(props);
 
     this.renderDays=this.renderDays.bind(this);
+    this.handleOfficeClick=this.handleOfficeClick.bind(this)
+  }
+
+  componentDidMount() {
+    const offices = document.querySelectorAll(".offices li")
+    offices.forEach(office => office.addEventListener('click', this.handleOfficeClick));
+    console.log(offices);
+  }
+
+  handleOfficeClick() {
+    console.log("Click muhfucka");
   }
 
   renderDays() {

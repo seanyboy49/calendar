@@ -7,7 +7,7 @@ class DayCard extends React.Component {
 
     this.state = {
       content: "",
-      office: "NY",
+      office: null,
       editing: false
     }
 
@@ -16,6 +16,8 @@ class DayCard extends React.Component {
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
   }
+
+
 
   handleClick(e) {
     let editState = this.state.editing;
