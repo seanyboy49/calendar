@@ -24,9 +24,8 @@ class Calendar extends React.Component {
 
 
 
-  handleOfficeClick() {
-    console.log("Click muhfucka");
-    ee.emitEvent('officeClick')
+  handleOfficeClick(e) {
+    ee.emitEvent('officeClick', [e.target.dataset.office])
   }
 
   renderDays() {

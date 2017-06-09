@@ -16,6 +16,7 @@ class DayCard extends React.Component {
     this.handleInput=this.handleInput.bind(this);
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
+    this.officeClick=this.officeClick.bind(this)
   }
 
   componentDidMount() {
@@ -27,8 +28,11 @@ class DayCard extends React.Component {
     }
   }
 
-  officeClick() {
-    console.log("an office has been clicked");
+  officeClick(office) {
+    if (this.state.editing) {
+      this.setState( {office: office, editing: false} )
+    }
+    console.log("an office has been clicked", office);
   }
 
 
