@@ -21,7 +21,7 @@ class DayCard extends React.Component {
 
   handleBold() {
     console.log("bold");
-      console.log(document.execCommand('bold'));
+    document.execCommand('bold')
   }
 
   componentDidMount() {
