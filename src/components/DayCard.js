@@ -36,8 +36,14 @@ class DayCard extends React.Component {
 
 
   handleClick(e) {
-    let editState = this.state.editing;
-    this.setState( {editing: !editState} )
+    const target = e.target;
+    const editState = this.state.editing;
+
+    if (editState && target.className === "text-area") {
+      return;
+    } else {
+      this.setState( {editing: !editState} )
+    }
   }
 
   toggleEditing() {
@@ -94,12 +100,7 @@ class DayCard extends React.Component {
         className={this.toggleEditing()} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
         <TextArea onChange={this.handleInput}/>
-        {/* <RIETextArea
-          className="text-area"
-          value={this.state.content}
-          propName="content"
-          change={this.handleInput}
-        /> */}
+
       </div>
     )
   }

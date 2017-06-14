@@ -5,6 +5,7 @@ const Month = (props) => {
   function handleBold() {
       console.log("bold");
       document.execCommand('bold')
+      document.execCommand('normal')
     }
     return(
       <div className="month-wrapper">
