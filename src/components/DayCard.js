@@ -1,5 +1,5 @@
 import React from 'react';
-import {RIETextArea} from 'riek';
+import TextArea from './TextArea';
 
 class DayCard extends React.Component {
   constructor(props) {
@@ -16,12 +16,6 @@ class DayCard extends React.Component {
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
     this.officeClick=this.officeClick.bind(this);
-    this.handleBold=this.handleBold.bind(this);
-  }
-
-  handleBold() {
-    console.log("bold");
-    document.execCommand('bold')
   }
 
   componentDidMount() {
@@ -62,6 +56,7 @@ class DayCard extends React.Component {
   }
 
   handleInput(e) {
+    console.log("change");
     this.setState(e)
   }
 
@@ -82,10 +77,6 @@ class DayCard extends React.Component {
           return {backgroundColor: "#C12867", color: "white"};
           break;
 
-          case "NY":
-          return {backgroundColor: "#7D2448", color: "white"};
-          break;
-
           case "US/GLOBAL":
           return {backgroundColor: "black", color: "white"};
           break;
@@ -101,13 +92,14 @@ class DayCard extends React.Component {
       <div onClick={this.handleClick}
         style={this.renderOffice()}
         className={this.toggleEditing()} >
-        <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}<button onClick={this.handleBold}><b id="bold">B</b></button></div>
-        <RIETextArea
+        <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
+        <TextArea onChange={this.handleInput}/>
+        {/* <RIETextArea
           className="text-area"
           value={this.state.content}
           propName="content"
           change={this.handleInput}
-        />
+        /> */}
       </div>
     )
   }

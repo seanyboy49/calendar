@@ -75,7 +75,8 @@
   position: absolute;
   display: block;
   top: 29px;
-  
+  font-size: 20px;
+  line-height: 20px;
 }
 
 .text-area span {

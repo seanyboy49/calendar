@@ -19,7 +19,6 @@ class Calendar extends React.Component {
   componentDidMount() {
     const offices = document.querySelectorAll(".offices li")
     offices.forEach(office => office.addEventListener('click', this.handleOfficeClick));
-    console.log(offices);
   }
 
 
