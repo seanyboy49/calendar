@@ -16,6 +16,14 @@ class DayCard extends React.Component {
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
     this.officeClick=this.officeClick.bind(this);
+    this.toggleFocus=this.toggleFocus.bind(this);
+  }
+
+  toggleFocus() {
+    const editState = this.state.editing;
+    console.log("toggleFocus1", editState);
+    this.setState( {editing: !editState} )
+    console.log("toggleFocus2", editState);
   }
 
   componentDidMount() {
@@ -31,7 +39,6 @@ class DayCard extends React.Component {
     if (this.state.editing) {
       this.setState( {office: office, editing: false} )
     }
-    console.log("an office has been clicked", office);
   }
 
 
@@ -99,7 +106,7 @@ class DayCard extends React.Component {
         style={this.renderOffice()}
         className={this.toggleEditing()} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
-        <TextArea onChange={this.handleInput}/>
+        <TextArea onChange={this.handleInput} toggleFocus={this.toggleFocus}/>
 
       </div>
     )
