@@ -16,6 +16,8 @@ class App extends Component {
     }
 
     this.getMonth=this.getMonth.bind(this);
+    this.clickRight=this.clickRight.bind(this);
+
 
   }
 
@@ -23,8 +25,24 @@ class App extends Component {
     this.getMonth();
   }
 
+  clickRight() {
+    const monthArray = this.props.monthArray;
+    const nextMonth = this.state.currentMonth + 1
+    const nextMonthName = monthArray[nextMonth];
+    this.setState({ currentMonth: nextMonth})
+    this.setState({ currentMonthName: nextMonthName})
+
+    this.getDays(nextMonth, 2017)
+    const date = new Date();
+
+    const firstDay = new Date(date.getFullYear(), nextMonth, 1).getDay();
+
+    this.setState( { firstDay: firstDay })
+    console.log(this.state.days);
+  }
+
   getMonth() {
-    const monthArray = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+    const monthArray = this.props.monthArray;
     const month = new Date().getMonth();
     const monthName = monthArray[new Date().getMonth()];
     this.setState({ currentMonth: month})
@@ -48,6 +66,11 @@ class App extends Component {
     return (
         <div className="app">
           <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
+          <div className="date-picker">
+            <div className="left-arrow"></div>
+            <div className="current-month"></div>
+            <div onClick={this.clickRight} className="right-arrow"></div>
+          </div>
           <Calendar firstDay={this.state.firstDay} days={this.state.days}/>
           <Offices />
         </div>
@@ -55,4 +78,7 @@ class App extends Component {
   }
 }
 
+App.defaultProps = {
+  monthArray: ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+}
 export default App;

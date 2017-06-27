@@ -1,15 +1,3 @@
-/* #EE2A7B */
-
-/*@font-face {
-  font-family: ProximaNova-Bold;
-  src:url("/public/ProximaNova-Bold.otf");
-}
-
-@font-face {
-  font-family: ProximaNova-SemiBold;
-  src:url("/public/ProximaNova-SemiBold.otf");
-}*/
-
 body {
   margin: 0;
   padding: 0;
@@ -19,6 +7,52 @@ body {
 .app {
   width: 1366px;
   height: 680px;
+}
+
+/* Date Picker*/
+.date-picker {
+  padding: 5px;
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 50px;
+  border: 1px solid #EE2A7B;
+  border-radius: 5px;
+  left: 100px;
+}
+
+.current-month {
+  height: 10px;
+  width: 10px;
+  background-color: #EE2A7B;
+  border-radius: 50px;
+  display: inline;
+  margin: 2px;
+  position: absolute;
+  top: 8px;
+  left: 22px;
+}
+
+.left-arrow {
+  display: inline-block;
+  margin: 2px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right:10px solid #EE2A7B;
+}
+
+.right-arrow {
+  right: 4px;
+  position: absolute;
+  display: inline;
+  margin: 2px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left:10px solid #EE2A7B;
 }
 
 
@@ -39,15 +73,18 @@ body {
 
 .month {
   font-size: 150px;
-  font-family: "ProximaNova-Semibold";
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 800;
   margin: 5px;
   line-height: 0.65;
 }
 
 .month-name {
   font-size: 60px;
-  font-family: "ProximaNova-Semibold";
-  margin: 5px;
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  font-weight: 800;  margin: 5px;
 }
 
 /* Offices */

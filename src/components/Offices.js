@@ -8,6 +8,7 @@ const Offices = props => {
       <div className="offices-wrapper">
         <ul className="offices">
           <li ><div data-office="SF" style={{backgroundColor: "#EE2A7B"}} className="swatch"></div>SF OFFICE</li>
+          <li ><div data-office="SF" style={{backgroundColor: "#EE2A7B"}} className="swatch"></div>SF OFFICE</li>
           <li><div data-office="LA" style={{backgroundColor: "#C12867"}} className="swatch"></div>LA OFFICE</li>
           <li><div data-office="US/GLOBAL" style={{backgroundColor: "black"}} className="swatch"></div>US/GLOBAL OFFICE</li>
         </ul>

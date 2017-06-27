@@ -10,8 +10,8 @@ class TextArea extends React.Component {
 
   }
 
-  handleFocus() {
-    console.log("focus");
+  handleFocus(e) {
+    console.log(e.target," is in focus");
     this.props.toggleFocus;
   }
 

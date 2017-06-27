@@ -36,6 +36,7 @@ class Calendar extends React.Component {
     for (var j=1; j < this.props.days; j++) {
       dayArray.push(<DayCard ee={ee} number={j} key={j+this.props.firstDay} visible={true}/>)
     }
+    console.log("dayArray", dayArray);
     return dayArray
   }
 
