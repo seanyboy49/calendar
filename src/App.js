@@ -42,24 +42,24 @@ class App extends Component {
   }
 
   getMonth() {
+    const date = new Date();
     const monthArray = this.props.monthArray;
-    const month = new Date().getMonth();
+    const month = date.getMonth();
+    const year = date.getFullYear();
     const monthName = monthArray[month];
-    console.log({month})
-    console.log({ monthName })
     this.setState({ currentMonth: month})
     this.setState({ currentMonthName: monthName})
 
-    this.getDays(month, 2017)
+    this.getDays(month, year)
 
-    const date = new Date();
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
 
     this.setState( { firstDay: firstDay })
   }
 
   getDays(month, year) {
-    const days = new Date(year, month, 0).getDate();
+    const days = new Date(year, month + 1, 0).getDate(); // third arg is last day of previous month so must add 1 to month
+    console.log({days})
     this.setState({ days: days})
   }
 
