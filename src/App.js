@@ -36,6 +36,8 @@ class App extends Component {
     const date = new Date();
 
     const firstDay = new Date(date.getFullYear(), nextMonth, 1).getDay();
+    console.log("click Right")
+    console.log({firstDay})
 
     this.setState( { firstDay: firstDay })
     console.log(this.state.days);
@@ -52,7 +54,7 @@ class App extends Component {
 
     this.getDays(month, year)
 
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    const firstDay = new Date(year, month, 1).getDay();
 
     this.setState( { firstDay: firstDay })
   }

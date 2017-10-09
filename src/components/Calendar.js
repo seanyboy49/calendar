@@ -29,12 +29,15 @@ class Calendar extends React.Component {
 
   renderDays() {
     const dayArray = [];
+    const firstDay = this.props.firstDay === 0 ? this.props.firstDay + 6 : this.props.firstDay - 1;
+    // const offsetDays = 6 - this.props.firstDay;
+    // console.log({offsetDays})
     // render invisible divs to offset the first day
-    for (var i=1; i< this.props.firstDay; i++) {
+    for (var i=0; i< firstDay; i++) {
       dayArray.push(<DayCard key={i} visible={false}/>)
     }
-    for (var j=1; j < this.props.days; j++) {
-      dayArray.push(<DayCard ee={ee} number={j} key={j+this.props.firstDay} visible={true}/>)
+    for (var j=1; j < this.props.days +1; j++) {
+      dayArray.push(<DayCard ee={ee} number={j} key={j+firstDay} visible={true}/>)
     }
     console.log("dayArray", dayArray);
     return dayArray
