@@ -1,9 +1,3 @@
-
-@font-face {
-  font-family: ProximaNova-Xbold;
-  src:url("/public/ProximaNova-Xbold.otf") format('otf');
-}
-
 .calendar-container {
   display: inline-block;
   width: 848px;

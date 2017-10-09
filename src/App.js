@@ -61,7 +61,6 @@ class App extends Component {
 
   getDays(month, year) {
     const days = new Date(year, month + 1, 0).getDate(); // third arg is last day of previous month so must add 1 to month
-    console.log({days})
     this.setState({ days: days})
   }
 

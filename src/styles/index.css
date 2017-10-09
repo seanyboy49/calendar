@@ -1,3 +1,8 @@
+@font-face {
+  font-family: ProximaNova-Xbold;
+  src: url("/Fonts/ProximaNova-Xbold.otf") format("opentype");
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -73,18 +78,19 @@ body {
 
 .month {
   font-size: 150px;
-  font-family: proxima-nova, sans-serif;
+  font-family: "ProximaNova-Regular";
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   margin: 5px;
   line-height: 0.65;
 }
 
 .month-name {
-  font-size: 60px;
-  font-family: proxima-nova, sans-serif;
+  font-size: 80px;
+  font-family:"ProximaNova-Regular";
   font-style: normal;
-  font-weight: 800;  margin: 5px;
+  font-weight: 700;  
+  margin: 5px;
 }
 
 /* Offices */
@@ -92,7 +98,7 @@ body {
   display: block;
   width: 250px;
   padding-left: 50px;
-  bottom: 0;
+  bottom: 270px;
   position: absolute;
   margin: 0;
 }

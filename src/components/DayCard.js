@@ -8,11 +8,11 @@ class DayCard extends React.Component {
     this.state = {
       content: "",
       office: null,
-      editing: false
+      editing: false,
+      active: false
     }
 
     this.formatNumber=this.formatNumber.bind(this);
-    this.handleInput=this.handleInput.bind(this);
     this.renderOffice=this.renderOffice.bind(this);
     this.handleClick=this.handleClick.bind(this);
     this.officeClick=this.officeClick.bind(this);
@@ -21,9 +21,7 @@ class DayCard extends React.Component {
 
   toggleFocus() {
     const editState = this.state.editing;
-    console.log("toggleFocus1", editState);
     this.setState( {editing: !editState} )
-    console.log("toggleFocus2", editState);
   }
 
   componentDidMount() {
@@ -57,7 +55,7 @@ class DayCard extends React.Component {
     var classNames = ["dayCard"]
     if (this.state.editing) {
       classNames.push("editing")
-    } else if (classNames.length === 2 && !this.state.editing) {
+    } else if (classNames.length === 2) {
       classNames.pop()
     }
     return classNames.join(' ');
@@ -65,12 +63,7 @@ class DayCard extends React.Component {
 
   formatNumber() {
     let number = this.props.number
-    return number < 10 ? number = '0' + number : number
-  }
-
-  handleInput(e) {
-    console.log("change");
-    this.setState(e)
+    return `0${number}`.slice(-2);
   }
 
   renderOffice() {
@@ -106,7 +99,7 @@ class DayCard extends React.Component {
         style={this.renderOffice()}
         className={this.toggleEditing()} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
-        <TextArea onChange={this.handleInput} toggleFocus={this.toggleFocus}/>
+        <TextArea toggleFocus={this.toggleFocus}/>
 
       </div>
     )
