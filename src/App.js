@@ -44,7 +44,9 @@ class App extends Component {
   getMonth() {
     const monthArray = this.props.monthArray;
     const month = new Date().getMonth();
-    const monthName = monthArray[new Date().getMonth()];
+    const monthName = monthArray[month];
+    console.log({month})
+    console.log({ monthName })
     this.setState({ currentMonth: month})
     this.setState({ currentMonthName: monthName})
 
@@ -79,6 +81,6 @@ class App extends Component {
 }
 
 App.defaultProps = {
-  monthArray: ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"]
+  monthArray: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"]
 }
 export default App;
