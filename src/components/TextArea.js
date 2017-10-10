@@ -5,7 +5,7 @@ class TextArea extends React.Component {
     super(props);
 
     this.handleInput=this.handleInput.bind(this);
-    this.handleKeyDown=this.handleKeyDown.bind(this);
+    this.handleTab=this.handleTab.bind(this);
     this.handleFocus=this.handleFocus.bind(this);
 
   }
@@ -15,8 +15,9 @@ class TextArea extends React.Component {
     this.props.toggleFocus();
   }
 
-  handleKeyDown(e) {
+  handleTab(e) {
     const key = e.keyCode;
+    console.log(e.target, " fired handle key down")
     return key === 9 ? this.props.toggleFocus() : null
   }
 
@@ -93,7 +94,7 @@ class TextArea extends React.Component {
           contentEditable="true"
           suppressContentEditableWarning
           onInput={this.handleInput}
-          onKeyDown={this.handleKeyDown}
+          onKeyDown={this.handleTab}
           onFocus={this.handleFocus}
         ></div>
       </div>

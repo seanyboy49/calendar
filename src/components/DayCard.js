@@ -21,18 +21,6 @@ class DayCard extends React.Component {
 
   }
 
-  toggleFocus() {
-    const editState = this.state.editing;
-    const activeState = this.state.active;
-    if(editState === true && activeState === true) {
-      this.setState({ editing: false, active: false })
-    } else if (editState === false && activeState === true) {
-      this.setState({ editing: true })
-    } else {
-      this.setState({ editing: false, active: true })
-    }
-  }
-
   componentDidMount() {
     if(this.props.ee) {
       const ee = this.props.ee;
@@ -54,10 +42,28 @@ class DayCard extends React.Component {
     const activeState = this.state.active;
 
     if (activeState && target.className === "text-area") {
+      console.log("inside handleClickt text-area")
       return;
     } else {
+      console.log("inside handleClick outside text-area")
       this.setState( {active: !activeState} )
     }
+  }
+
+  toggleFocus() {
+    const editState = this.state.editing;
+    const activeState = this.state.active;
+    if (activeState === true && editState === true) {
+      this.setState({ active: false, editing: false })
+    } else if (activeState === true && editState === false) { 
+      this.setState({ editing: true }) // leave active
+    } else if (activeState === false && editState === false) {
+      this.setState({ active: true, editing: true })
+    } else { // activeState === false && editState === true
+      console.log("this should only fire on first tab")
+      this.setState({ editing: true, active: true })
+    }
+    console.log(this.state)
   }
 
   toggleActive() {
