@@ -17,11 +17,20 @@ class DayCard extends React.Component {
     this.handleClick=this.handleClick.bind(this);
     this.officeClick=this.officeClick.bind(this);
     this.toggleFocus=this.toggleFocus.bind(this);
+    this.toggleActive = this.toggleActive.bind(this);
+
   }
 
   toggleFocus() {
     const editState = this.state.editing;
-    this.setState( {editing: !editState} )
+    const activeState = this.state.active;
+    if(editState === true && activeState === true) {
+      this.setState({ editing: false, active: false })
+    } else if (editState === false && activeState === true) {
+      this.setState({ editing: true })
+    } else {
+      this.setState({ editing: false, active: true })
+    }
   }
 
   componentDidMount() {
@@ -34,27 +43,27 @@ class DayCard extends React.Component {
   }
 
   officeClick(office) {
-    if (this.state.editing) {
-      this.setState( {office: office, editing: false} )
+    if (this.state.active) {
+      this.setState( {office: office, editing: false, active: false} )
     }
   }
 
 
   handleClick(e) {
     const target = e.target;
-    const editState = this.state.editing;
+    const activeState = this.state.active;
 
-    if (editState && target.className === "text-area") {
+    if (activeState && target.className === "text-area") {
       return;
     } else {
-      this.setState( {editing: !editState} )
+      this.setState( {active: !activeState} )
     }
   }
 
-  toggleEditing() {
+  toggleActive() {
     var classNames = ["dayCard"]
-    if (this.state.editing) {
-      classNames.push("editing")
+    if (this.state.active) {
+      classNames.push("active")
     } else if (classNames.length === 2) {
       classNames.pop()
     }
@@ -97,7 +106,7 @@ class DayCard extends React.Component {
     return (
       <div onClick={this.handleClick}
         style={this.renderOffice()}
-        className={this.toggleEditing()} >
+        className={this.toggleActive()} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
         <TextArea toggleFocus={this.toggleFocus}/>
 

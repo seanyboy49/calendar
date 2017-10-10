@@ -45,7 +45,7 @@
   position: absolute;
 }
 
-.editing {
+.active {
   transform: scale(1.1);
   border-color: #F78AE0;
   transition: all 0.08s;
