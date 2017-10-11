@@ -54,7 +54,7 @@ class DayCard extends React.Component {
     const editState = this.state.editing;
     const activeState = this.state.active;
     if (activeState === true && editState === true) {
-      this.setState({ active: false, editing: false })
+      this.setState({ active: true, editing: false })
     } else if (activeState === true && editState === false) { 
       this.setState({ editing: true }) // leave active
     } else if (activeState === false && editState === false) {
