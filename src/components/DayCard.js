@@ -91,15 +91,15 @@ class DayCard extends React.Component {
         let office = this.state.office;
         switch(office) {
           case "SF":
-          return {backgroundColor: "#EE2A7B", color: "white"};
+            return { backgroundColor: "#EE2A7B", color: "white", borderColor: "#EE2A7B"};
           break;
 
           case "LA":
-          return {backgroundColor: "#C12867", color: "white"};
+            return { backgroundColor: "#C12867", color: "white", borderColor: "#C12867"};
           break;
 
           case "US/GLOBAL":
-          return {backgroundColor: "black", color: "white"};
+            return { backgroundColor: "black", color: "white", borderColor: "black"};
           break;
 
           default:
