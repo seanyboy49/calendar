@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      year: null,
       currentMonth: null,
       currentMonthName: null,
       days: null,
@@ -21,6 +22,8 @@ class App extends Component {
   }
 
   componentWillMount() {
+    let year = new Date().getFullYear();
+    this.setState({year: year})
     this.getMonth();
   }
 
@@ -33,21 +36,21 @@ class App extends Component {
   }
 
   getMonth(opt) {
-    const yearNav = opt || 0;
-    console.log(yearNav)
+    const monthNav = opt || 0;
+    console.log(monthNav)
     const date = new Date();
     const monthArray = this.props.monthArray;
-    let year = date.getFullYear();
+    let year = this.state.year;
 
     let month;
       if (this.state.currentMonth !== null) {
         if (this.state.currentMonth < 11) {
           console.log("month < 12")
-         month = this.state.currentMonth + yearNav;
+         month = this.state.currentMonth + monthNav;
         } else {
           console.log("month = 0")
           month = 0;
-          year +=1;
+          this.setState({year: year + 1})
         }
       } else {
         console.log("first time getting month")
