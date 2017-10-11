@@ -7,7 +7,7 @@ const Month = (props) => {
       <div className="month-wrapper">
         <div className="pink-bar">
           <div className="bar" onClick={props.clickLeft}></div>
-          <div className="bar"></div>
+          <div id="bar-mid" className="bar" ></div>
           <div className="bar" onClick={props.clickRight}></div>
         </div>
         <p className="month">{`0${props.month+1}`.slice(-2)}</p>

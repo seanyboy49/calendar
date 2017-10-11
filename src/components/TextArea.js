@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash'
 
 class TextArea extends React.Component {
   constructor(props) {
@@ -55,9 +56,11 @@ class TextArea extends React.Component {
     }
 
     const textArea = e.target;
-    const style = (window.getComputedStyle) ? window.getComputedStyle(textArea) : textArea.currentStyle
+    const style = (window.getComputedStyle) ? window.getComputedStyle(textArea) : textArea.currentStyle;
     const taLineHeight = parseInt(style.lineHeight, 10)
+    console.log({taLineHeight})
     const taHeight = calculateContentHeight(textArea, taLineHeight);
+    console.log({taHeight})
     const numberOfLines = Math.ceil(taHeight / taLineHeight);
 
     console.log("number of lines is ", numberOfLines);
