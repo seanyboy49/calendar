@@ -71,10 +71,17 @@ body {
 
 .pink-bar {
   display: inline-block;
-  height: 10px;
+  /* height: 10px;
   width: 120px;
-  background-color: #EE2A7B;
+  background-color: #EE2A7B; */
   margin: 42px 0 42px 10px;
+}
+
+.bar {
+  display: inline-block;
+  height: 10px;
+  width: 40px;
+  background-color: #EE2A7B;
 }
 
 .month {

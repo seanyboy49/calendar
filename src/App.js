@@ -74,12 +74,7 @@ class App extends Component {
   render() {
     return (
         <div className="app">
-          <Month month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
-          <div className="date-picker">
-          <div onClick={this.clickLeft}className="left-arrow"></div>
-            <div className="current-month"></div>
-            <div onClick={this.clickRight} className="right-arrow"></div>
-          </div>
+          <Month clickLeft={this.clickLeft} clickRight={this.clickRight} month={this.state.currentMonth} monthName={this.state.currentMonthName}/>
           <Calendar firstDay={this.state.firstDay} days={this.state.days}/>
           <Offices />
         </div>
