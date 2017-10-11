@@ -60,7 +60,7 @@ class TextArea extends React.Component {
     const taHeight = calculateContentHeight(textArea, taLineHeight);
     const numberOfLines = Math.ceil(taHeight / taLineHeight);
 
-    // console.log("number of lines is ", numberOfLines);
+    console.log("number of lines is ", numberOfLines);
     switch (true) {
       case (numberOfLines === 4):
         textArea.style.fontSize="14px";

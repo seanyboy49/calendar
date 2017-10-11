@@ -46,8 +46,8 @@ class Calendar extends React.Component {
           <li>WEDNESDAY</li>
           <li>THURSDAY</li>
           <li>FRIDAY</li>
-          <li>SATURDAY</li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;SUNDAY</li>
+          <li>&nbsp;&nbsp;SATURDAY</li>
+          <li>&nbsp;&nbsp;&nbsp;SUNDAY</li>
         </ul>
         <section className="numbered-days">
           {this.renderDays()}

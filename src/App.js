@@ -37,11 +37,9 @@ class App extends Component {
 
   getMonth(opt) {
     const monthNav = opt || 0;
-    console.log(monthNav)
     const date = new Date();
     const monthArray = this.props.monthArray;
     let year = this.state.year;
-    console.log(this.state.year)
 
     let month;
       if (this.state.currentMonth !== null) {
@@ -57,19 +55,19 @@ class App extends Component {
       }    
 
     const monthName = monthArray[month];
-    this.setState({ currentMonth: month})
-    this.setState({ currentMonthName: monthName})
+    this.setState({ currentMonth: month});
+    this.setState({ currentMonthName: monthName});
 
 
-    this.getDays(month, year)
+    this.getDays(month, year);
     const firstDay = new Date(year, month, 1).getDay();
-    this.setState({ firstDay: firstDay })
+    this.setState({ firstDay: firstDay });
 
   }
 
   getDays(month, year) {
     const days = new Date(year, month + 1, 0).getDate(); // third arg is last day of previous month so must add 1 to month
-    this.setState({ days: days})
+    this.setState({ days: days});
   }
 
 
