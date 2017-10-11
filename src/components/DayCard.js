@@ -40,10 +40,8 @@ class DayCard extends React.Component {
     const activeState = this.state.active;
 
     if (activeState && target.className === "text-area") {
-      console.log("inside handleClickt text-area")
       return;
     } else {
-      console.log("inside handleClick outside text-area")
       this.setState( {active: !activeState} )
     }
   }
@@ -58,8 +56,7 @@ class DayCard extends React.Component {
     } else if (activeState === false && editState === false) {
       this.setState({ active: true, editing: true })
     } else { // activeState === false && editState === true
-      console.log("this should only fire on first tab")
-      this.setState({ editing: true, active: true })
+      this.setState({ editing: true, active: true }) // should only fire on first tab
     }
   }
 
@@ -107,4 +104,5 @@ class DayCard extends React.Component {
     )
   }
 }
+
 export default DayCard;

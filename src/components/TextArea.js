@@ -11,13 +11,11 @@ class TextArea extends React.Component {
   }
 
   handleFocus(e) {
-    console.log(e.target," is in focus");
     this.props.toggleFocus();
   }
 
   handleTab(e) {
     const key = e.keyCode;
-    console.log(e.target, " fired handle key down")
     return key === 9 ? this.props.toggleFocus() : null
   }
 

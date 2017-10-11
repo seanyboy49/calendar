@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   getMonth(opt) {
-    var that = this;
     const monthNav = opt || 0;
     console.log(monthNav)
     const date = new Date();
@@ -50,7 +49,8 @@ class App extends Component {
          month = this.state.currentMonth + monthNav;
         } else { // reset month to 0 and add a year
           month = 0;
-          this.setState({year: year + 1}, ()=> {year = this.state.year;})
+          year = year+1;
+          this.setState({year: year + 1});
         }
       } else {
         month = date.getMonth(); // should run on component will mount
