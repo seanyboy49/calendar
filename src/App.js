@@ -23,8 +23,10 @@ class App extends Component {
 
   componentWillMount() {
     let year = new Date().getFullYear();
-    this.setState({year: year})
-    this.getMonth();
+    console.log(year)
+    this.setState({year: year}, ()=> {this.getMonth()})
+    // console.log(this.state.year)
+    // this.getMonth();
   }
 
   clickRight() {
@@ -41,6 +43,7 @@ class App extends Component {
     const date = new Date();
     const monthArray = this.props.monthArray;
     let year = this.state.year;
+    console.log(this.state.year)
 
     let month;
       if (this.state.currentMonth !== null) {
@@ -66,6 +69,7 @@ class App extends Component {
 
     this.getDays(month, year)
 
+    console.log("year", year)
     const firstDay = new Date(year, month, 1).getDay();
 
     this.setState( { firstDay: firstDay })
