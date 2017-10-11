@@ -25,8 +25,6 @@ class App extends Component {
     let year = new Date().getFullYear();
     console.log(year)
     this.setState({year: year}, ()=> {this.getMonth()})
-    // console.log(this.state.year)
-    // this.getMonth();
   }
 
   clickRight() {
