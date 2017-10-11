@@ -21,8 +21,6 @@ class Calendar extends React.Component {
     offices.forEach(office => office.addEventListener('click', this.handleOfficeClick));
   }
 
-
-
   handleOfficeClick(e) {
     ee.emitEvent('officeClick', [e.target.dataset.office])
   }
@@ -30,9 +28,6 @@ class Calendar extends React.Component {
   renderDays() {
     const dayArray = [];
     const firstDay = this.props.firstDay === 0 ? this.props.firstDay + 6 : this.props.firstDay - 1;
-    // const offsetDays = 6 - this.props.firstDay;
-    // console.log({offsetDays})
-    // render invisible divs to offset the first day
     for (var i=0; i< firstDay; i++) {
       dayArray.push(<DayCard key={i} visible={false}/>)
     }

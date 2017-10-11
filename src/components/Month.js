@@ -3,7 +3,6 @@ import '../styles/index.css';
 
 const Month = (props) => {
   function handleBold() {
-      console.log("bold");
       document.execCommand('bold')
       document.execCommand('normal')
     }
