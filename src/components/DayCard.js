@@ -17,8 +17,6 @@ class DayCard extends React.Component {
     this.handleClick=this.handleClick.bind(this);
     this.officeClick=this.officeClick.bind(this);
     this.toggleFocus=this.toggleFocus.bind(this);
-    this.toggleActive = this.toggleActive.bind(this);
-
   }
 
   componentDidMount() {
@@ -63,17 +61,6 @@ class DayCard extends React.Component {
       console.log("this should only fire on first tab")
       this.setState({ editing: true, active: true })
     }
-    console.log(this.state)
-  }
-
-  toggleActive() {
-    var classNames = ["dayCard"]
-    if (this.state.active) {
-      classNames.push("active")
-    } else if (classNames.length === 2) {
-      classNames.pop()
-    }
-    return classNames.join(' ');
   }
 
   formatNumber() {
@@ -112,7 +99,7 @@ class DayCard extends React.Component {
     return (
       <div onClick={this.handleClick}
         style={this.renderOffice()}
-        className={this.toggleActive()} >
+        className={`dayCard ${this.state.active ? 'active' : ''}`} >
         <div className="dayCard-number"><span style={ (this.state.office == null) ? {backgroundColor: "black"} : {backgroundColor: "white" }} className="dayCard-bar"></span>{this.formatNumber()}</div>
         <TextArea toggleFocus={this.toggleFocus}/>
 
