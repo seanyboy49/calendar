@@ -83,6 +83,9 @@ body {
   width: 40px;
   background-color: #EE2A7B;
 }
+.bar:hover{
+  cursor: pointer;
+}
 
 .month {
   font-size: 150px;
