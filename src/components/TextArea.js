@@ -58,31 +58,24 @@ class TextArea extends React.Component {
     const textArea = e.target;
     const style = (window.getComputedStyle) ? window.getComputedStyle(textArea) : textArea.currentStyle;
     const taLineHeight = parseInt(style.lineHeight, 10)
-    console.log({taLineHeight})
     const taHeight = calculateContentHeight(textArea, taLineHeight);
-    console.log({taHeight})
     const numberOfLines = Math.ceil(taHeight / taLineHeight);
 
-    console.log("number of lines is ", numberOfLines);
     switch (true) {
-      case (numberOfLines === 4):
-        textArea.style.fontSize="14px";
-        textArea.style.lineHeight="14px";
-        break;
 
-      case (5 <= numberOfLines && numberOfLines < 7):
+      case (6 <= numberOfLines && numberOfLines < 8):
         textArea.style.fontSize="13px";
         textArea.style.lineHeight="13px";
-        break;
+        return;
 
       case (numberOfLines >= 7):
         textArea.style.fontSize="11px";
         textArea.style.lineHeight="11px";
-        break;
+        return;
 
       default:
-        textArea.style.fontSize="20px";
-        textArea.style.lineHeight="20px";
+        textArea.style.fontSize="14px";
+        textArea.style.lineHeight="14px";
         return;
     }
   }
